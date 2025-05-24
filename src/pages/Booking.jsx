@@ -1,8 +1,11 @@
+import { useParams, useNavigate } from 'react-router-dom';
 import CinemaHall from '../components/CinemaHall';
 import movies from '../data/movie';
 
-function Booking({ movieId, onNavigateToHome }) {
-  const movie = movies.find(m => m.id === parseInt(movieId));
+function Booking() {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const movie = movies.find(m => m.id === parseInt(id));
 
   if (!movie) {
     return <div className="not-found">Фільм не знайдено</div>;
@@ -11,7 +14,7 @@ function Booking({ movieId, onNavigateToHome }) {
   return (
     <div className="booking-container">
       <div className="back-button-container">
-        <button onClick={onNavigateToHome} className="back-button">
+        <button onClick={() => navigate('/')} className="back-button">
           ← Назад до списку фільмів
         </button>
       </div>
@@ -29,9 +32,9 @@ function Booking({ movieId, onNavigateToHome }) {
       <CinemaHall
         movieId={movie.id}
         onConfirmBooking={(seats, total) => {
-        console.log('Заброньовано:', seats, 'на суму', total);
-        alert(`Заброньовано місця: ${seats.join(', ')}\nСума: ${total} грн`);
-        onNavigateToHome(); 
+          console.log('Заброньовано:', seats, 'на суму', total);
+          alert(`Заброньовано місця: ${seats.join(', ')}\nСума: ${total} грн`);
+          navigate('/');
         }}
       />
     </div>

@@ -1,4 +1,4 @@
-import MovieCard from './MovieCard';
+import { Link } from 'react-router-dom';
 
 function MovieList({ movies, onNavigateToBooking }) {
   if (movies.length === 0) {
@@ -8,7 +8,9 @@ function MovieList({ movies, onNavigateToBooking }) {
   return (
     <div className="movie-grid">
       {movies.map(movie => (
-        <MovieCard key={movie.id} movie={movie} onNavigateToBooking={onNavigateToBooking} />
+        <Link to={`/booking/${movie.id}`}>
+          <MovieCard movie={movie} />
+        </Link>
       ))}
     </div>
   );

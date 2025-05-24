@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import SearchBar from '../components/SearchBar';
-import MovieList from '../components/MovieList';
-import movies from '../data/movie'
-import myPhoto from '../assets/photo_2025-05-18_18-41-24.jpg'
+import MovieCard from '../components/MovieCard';
+import movies from '../data/movie';
+import myPhoto from '../assets/photo_2025-05-18_18-41-24.jpg';
+import { Link } from 'react-router-dom';
 
-function Home({ onNavigateToBooking }) {
+function Home() {
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredMovies = movies.filter(movie =>
@@ -19,7 +20,18 @@ function Home({ onNavigateToBooking }) {
         className="cinema-banner"
       />
       <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-      <MovieList movies={filteredMovies} onNavigateToBooking={onNavigateToBooking} />
+      
+      <div className="movie-grid">
+        {filteredMovies.length === 0 ? (
+          <div className="no-results">Фільмів не знайдено</div>
+        ) : (
+          filteredMovies.map(movie => (
+            <Link key={movie.id} to={`/booking/${movie.id}`}>
+              <MovieCard movie={movie} />
+            </Link>
+          ))
+        )}
+      </div>
     </>
   );
 }

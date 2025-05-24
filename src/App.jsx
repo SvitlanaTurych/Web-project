@@ -1,32 +1,20 @@
-import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
 import Home from './pages/Home';
 import Booking from './pages/Booking.jsx';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('home');
-  const [selectedMovieId, setSelectedMovieId] = useState(null);
-
-  const navigateToBooking = (movieId) => {
-    setSelectedMovieId(movieId);
-    setCurrentPage('booking');
-  };
-
-  const navigateToHome = () => {
-    setCurrentPage('home');
-    setSelectedMovieId(null);
-  };
-
   return (
+    <Router>
       <div className="app-container">
         <div className="app-content">
-          {currentPage === 'home' ? (
-            <Home onNavigateToBooking={navigateToBooking} />
-          ) : (
-            <Booking movieId={selectedMovieId} onNavigateToHome={navigateToHome} />
-          )}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/booking/:id" element={<Booking />} />
+          </Routes>
         </div>
       </div>
+    </Router>
   );
 }
 
