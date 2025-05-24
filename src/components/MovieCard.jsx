@@ -1,4 +1,4 @@
-function MovieCard({ movie }) {
+function MovieCard({ movie, onNavigateToBooking }) {
   return (
 <div className="card">
   <div className="poster-wrapper">
@@ -15,8 +15,9 @@ function MovieCard({ movie }) {
       ))}
     </div>
     <p className="showtime">Сеанс: {movie.showtime}</p>
+    <button className="booking-button" onClick={() => onNavigateToBooking(movie.id)}>Забронювати</button>
+   </div>
   </div>
-        </div>
   );
 }
 
