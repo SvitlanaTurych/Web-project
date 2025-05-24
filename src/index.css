@@ -30,7 +30,6 @@ body {
   line-height: 1.5;
 }
 
-/* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
@@ -45,7 +44,6 @@ h1 {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* MovieList */
 .movie-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -58,7 +56,6 @@ h1 {
   font-size: 1.125rem;
 }
 
-/* MovieCard */
 .card {
   background-color: var(--card-bg);
   border-radius: var(--radius-lg);
@@ -74,7 +71,7 @@ h1 {
 
 .poster-wrapper {
   width: 100%;
-  height: 600px; /* або 16rem — залежно від дизайну */
+  height: 600px; 
   overflow: hidden;
 }
 
@@ -85,7 +82,6 @@ h1 {
   object-position: center;
   display: block;
 }
-
 
 .card-content {
   padding: 1rem;
@@ -127,7 +123,7 @@ h1 {
   margin-top: 0.5rem;
 }
 
-/* Search Styling */
+
 input[type="text"] {
   width: 100%;
   padding: 0.75rem 1rem;
@@ -151,7 +147,6 @@ input[type="text"]::placeholder {
   color: var(--text-light);
 }
 
-/* Layout Helpers */
 .background{
   min-height: 100vh;
   padding-top: 2rem;
@@ -174,15 +169,7 @@ input[type="text"]::placeholder {
   margin-bottom: 2rem;
   border: #4c1d95;
   border-radius: 0.8rem;
-}
-
- /* .main-text {
-  font-size: 1.875rem; /* відповідає класу text-3xl */
-  /* font-weight: bold; */
-  /* text-align: center; */
-  /* margin-bottom: 2rem; */
-  /* color: #3730a3; відповідає класу text-indigo-800 */
- /* }   */ 
+} 
 
 .search {
   margin-bottom: 1.5rem;
@@ -190,20 +177,260 @@ input[type="text"]::placeholder {
 
 .search-input {
   width: 100%;
-  padding: 0.75rem; /* відповідає p-3 */
-  border-radius: 0.5rem; /* rounded-lg */
-  border: 1px solid #d1d5db; /* border-gray-300 */
+  padding: 0.75rem; 
+  border-radius: 0.5rem; 
+  border: 1px solid #d1d5db; 
   outline: none;
   transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .search-input:focus {
-  box-shadow: 0 0 0 2px #6366f1; /* focus:ring-2 focus:ring-indigo-500 */
+  box-shadow: 0 0 0 2px #6366f1; 
   border-color: #6366f1;
 }
 
+.app-container {
+  font-family: 'Roboto', sans-serif;
+  background-color: #1f2937;
+  color: #f9fafb;
+  min-height: 100vh;
+}
 
-/* Responsive */
+.app-content {
+  max-width: 72rem; /* 1152px */
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.cinema-banner {
+  display: block;
+  margin: 0 auto 2rem auto;
+  border-radius: 0.8rem;
+  max-width: 100%;
+  height: auto;
+}
+
+.not-found {
+  text-align: center;
+  color: #9ca3af;
+  font-size: 1.125rem;
+}
+
+.booking-container {
+  padding: 1rem;
+}
+
+.back-button-container {
+  margin-bottom: 2rem;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: #7c3aed;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.movie-title {
+  font-size: 2.25rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #7c3aed;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+.showtime-info {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.showtime-text {
+  font-size: 0.875rem;
+  color: #d1d5db;
+  margin-bottom: 0.75rem;
+}
+
+.genre-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.genre-badge {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  background-color: rgba(124, 58, 237, 0.2);
+  color: #7c3aed;
+  border-radius: 9999px;
+}
+
+.booking-button {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.booking-button:hover {
+  background-color: #6b21a8;
+}
+
+.cinema-container {
+  text-align: center;
+}
+
+.cinema-screen {
+  background-color: #374151;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.cinema-screen-label {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #f9fafb;
+}
+
+.cinema-screen-line {
+  height: 4px;
+  background-color: #7c3aed;
+  border-radius: 2px;
+  margin-top: 0.5rem;
+}
+
+.cinema-seats {
+  margin-bottom: 2rem;
+}
+
+.seat-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.row-label {
+  width: 30px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #d1d5db;
+  margin-right: 10px;
+}
+
+.seat-button {
+  width: 40px;
+  height: 40px;
+  margin: 2px;
+  border: none;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: white;
+}
+
+.seat-button.available {
+  background-color: #22c55e;
+}
+
+.seat-button.selected {
+  background-color: #3b82f6;
+}
+
+.seat-button.booked {
+  background-color: #ef4444;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.cinema-legend {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #d1d5db;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.legend-color.available {
+  background-color: #22c55e;
+}
+
+.legend-color.selected {
+  background-color: #3b82f6;
+}
+
+.legend-color.booked {
+  background-color: #ef4444;
+}
+
+.cinema-summary {
+  background-color: #374151;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  margin-top: 2rem;
+}
+
+.cinema-summary h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #f9fafb;
+  margin-bottom: 1rem;
+}
+
+.cinema-summary p {
+  font-size: 1rem;
+  color: #d1d5db;
+  margin-bottom: 0.5rem;
+}
+
+.cinema-total {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #7c3aed;
+  margin-bottom: 1rem;
+}
+
+.confirm-button {
+  padding: 0.75rem 2rem;
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.confirm-button:hover {
+  background-color: #6b21a8;
+}
+
 @media (max-width: 1024px) {
   .movie-grid {
     grid-template-columns: repeat(2, 1fr);
