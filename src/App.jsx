@@ -1,25 +1,32 @@
 import { useState } from 'react';
-import MovieList from './components/MovieList';
-import SearchBar from './components/SearchBar';
-import moviesData from './data/movie';
 import './index.css';
-import myPhoto from './assets/photo_2025-05-18_18-41-24.jpg';
+import Home from './pages/Home';
+import Booking from './pages/Booking.jsx';
 
 function App() {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [currentPage, setCurrentPage] = useState('home');
+  const [selectedMovieId, setSelectedMovieId] = useState(null);
 
-  const filteredMovies = moviesData.filter(movie =>
-    movie.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const navigateToBooking = (movieId) => {
+    setSelectedMovieId(movieId);
+    setCurrentPage('booking');
+  };
+
+  const navigateToHome = () => {
+    setCurrentPage('home');
+    setSelectedMovieId(null);
+  };
 
   return (
-    <div className="background">
-      <div className="bg">
-        <img src={myPhoto} alt="Афіша кінотеатру" className="afisha" />
-        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-        <MovieList movies={filteredMovies} />
+      <div className="app-container">
+        <div className="app-content">
+          {currentPage === 'home' ? (
+            <Home onNavigateToBooking={navigateToBooking} />
+          ) : (
+            <Booking movieId={selectedMovieId} onNavigateToHome={navigateToHome} />
+          )}
+        </div>
       </div>
-    </div>
   );
 }
 
