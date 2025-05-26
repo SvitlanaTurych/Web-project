@@ -1,11 +1,13 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import CinemaHall from '../components/CinemaHall';
 import movies from '../data/movie';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Booking() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const movie = movies.find(m => m.id === parseInt(id));
+  const movie = movies.find((m) => m.id === parseInt(id));
 
   if (!movie) {
     return <div className="not-found">Фільм не знайдено</div>;
@@ -33,10 +35,9 @@ function Booking() {
         movieId={movie.id}
         onConfirmBooking={(seats, total) => {
           console.log('Заброньовано:', seats, 'на суму', total);
-          alert(`Заброньовано місця: ${seats.join(', ')}\nСума: ${total} грн`);
-          navigate('/');
         }}
       />
+      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
 }
